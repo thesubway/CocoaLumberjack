@@ -321,6 +321,7 @@ static NSUInteger _numProcessors;
         // We're now sure we won't overflow the queue.
         // It is time to queue our log message.
         @autoreleasepool {
+            NSLog(@"fenix queue:%@, loggers, %lu", logMessage.message, (unsigned long)self._loggers.count);
             [self lt_log:logMessage];
         }
     };
