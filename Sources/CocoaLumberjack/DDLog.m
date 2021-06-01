@@ -786,6 +786,10 @@ static NSUInteger _numProcessors;
     NSAssert(dispatch_get_specific(GlobalLoggingQueueIdentityKey),
              @"This method should only be run on the logging thread/queue");
 
+    if ([logMessage isEqualTo:@"fenix2"]) {
+        NSLog(@"numProcessors, %lu", (unsigned long)_numProcessors);
+    }
+    
     if (_numProcessors > 1) {
         // Execute each logger concurrently, each within its own queue.
         // All blocks are added to same group.
